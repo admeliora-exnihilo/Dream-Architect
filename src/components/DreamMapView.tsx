@@ -51,7 +51,7 @@ export default function DreamMapView({ nodes, setNodes }: DreamMapViewProps) {
       case "nightmare": return "#b91c1c"; // lower saturation red-700
       case "lucid": return "#0891b2"; // soft cyan-600
       case "anomaly": return "#a1824a"; // muted golden sand / low saturation amber
-      case "memory": return "#475569"; // muted slate blue-600
+      case "memory": return "#64748b"; // elegant muted slate blue-500
       default: return "#0891b2";
     }
   };
@@ -278,15 +278,16 @@ export default function DreamMapView({ nodes, setNodes }: DreamMapViewProps) {
                     max="100"
                     value={selectedNode.activity}
                     onChange={(e) => handleIntensityChange(parseInt(e.target.value))}
-                    className="w-full h-1 bg-cyan-950 rounded appearance-none cursor-pointer accent-cyan-400"
+                    className="w-full h-1 bg-slate-950 rounded appearance-none cursor-pointer"
+                    style={{ accentColor: getNodeColor(selectedNode.type) }}
                     id="intensity-range-input"
                   />
                   <div 
-                    className="h-1 bg-cyan-400 absolute top-1/2 -translate-y-1/2 left-0 pointer-events-none rounded transition-all"
+                    className="h-1 absolute top-1/2 -translate-y-1/2 left-0 pointer-events-none rounded transition-all"
                     style={{ 
                       width: `${selectedNode.activity}%`,
                       backgroundColor: getNodeColor(selectedNode.type),
-                      boxShadow: `0 0 10px ${getNodeColor(selectedNode.type)}`
+                      boxShadow: `0 0 8px ${getNodeColor(selectedNode.type)}40`
                     }}
                   />
                 </div>
@@ -373,7 +374,7 @@ export default function DreamMapView({ nodes, setNodes }: DreamMapViewProps) {
                 <span className="uppercase">LUCID</span>
               </div>
               <div className="flex items-center gap-2" id="legend-memory">
-                <span className="w-2.5 h-2.5 rounded-full inline-block shadow-[0_0_4px_rgba(71,85,105,0.4)]" style={{ backgroundColor: "#475569" }} />
+                <span className="w-2.5 h-2.5 rounded-full inline-block shadow-[0_0_4px_rgba(100,116,139,0.4)]" style={{ backgroundColor: "#64748b" }} />
                 <span className="uppercase">MEMORY</span>
               </div>
             </div>

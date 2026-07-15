@@ -668,51 +668,51 @@ export default function DashboardView({
         
         {/* MEMORY REPAIR QUEUE (8 cols) */}
         <div className="lg:col-span-8 flex flex-col" id="memory-queue-glow-container-col">
-          <section className="glass-panel p-6 flex flex-col justify-between flex-1" id="memory-queue-panel">
-            <div className="flex items-center justify-between border-b border-purple-500/15 pb-4 mb-4" id="memory-queue-header">
+          <section className="bg-slate-950/40 border border-slate-500/10 p-6 flex flex-col justify-between flex-1 rounded-xl" id="memory-queue-panel">
+            <div className="flex items-center justify-between border-b border-slate-500/10 pb-4 mb-4" id="memory-queue-header">
               <div>
-                <h3 className="font-display font-medium text-xs tracking-widest text-purple-300 uppercase">MEMORY REPAIR QUEUE</h3>
-                <p className="text-[10px] font-mono text-purple-400/50 mt-0.5">TRAUMA SECTOR DEFRAGMENTATION STATUS</p>
+                <h3 className="font-display font-medium text-xs tracking-widest text-slate-300 uppercase">MEMORY REPAIR QUEUE</h3>
+                <p className="text-[10px] font-mono text-slate-400/40 mt-0.5">TRAUMA SECTOR DEFRAGMENTATION STATUS</p>
               </div>
-                <span className="text-[9px] font-mono text-purple-400 bg-purple-950/40 border border-purple-500/20 px-2 py-0.5 rounded tracking-widest" id="memory-queue-sub-badge">
+                <span className="text-[9px] font-mono text-slate-400 bg-slate-950/50 border border-slate-500/10 px-2 py-0.5 rounded tracking-widest" id="memory-queue-sub-badge">
                   ALPHA-SECURE NODE
                 </span>
               </div>
 
               <div className="space-y-5" id="memory-queue-subjects-list">
                 {subjects.map((sub) => (
-                  <div key={sub.id} className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-3.5 rounded-lg border border-purple-500/10 bg-purple-950/10 hover:border-purple-500/25 transition-all duration-300" id={`memory-subject-row-${sub.id}`}>
+                  <div key={sub.id} className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-3.5 rounded-lg border border-slate-500/5 bg-slate-950/20 hover:border-slate-500/10 transition-all duration-300" id={`memory-subject-row-${sub.id}`}>
                     
                     {/* Info and issue */}
                     <div className="flex items-start gap-3.5" id={`subject-info-box-${sub.id}`}>
-                      <div className="p-2.5 bg-purple-500/10 rounded-lg border border-purple-500/20 text-purple-400" id={`subject-icon-box-${sub.id}`}>
-                        <User className="w-5 h-5 text-purple-300" id={`subject-icon-${sub.id}`} />
+                      <div className="p-2.5 bg-slate-900/40 rounded-lg border border-slate-500/5 text-slate-400" id={`subject-icon-box-${sub.id}`}>
+                        <User className="w-5 h-5 text-slate-400" id={`subject-icon-${sub.id}`} />
                       </div>
                       <div>
                         <div className="flex items-center gap-2" id={`subject-meta-${sub.id}`}>
-                          <span className="font-sans font-bold text-neon-purple text-sm">{sub.name}</span>
+                          <span className="font-sans font-bold text-slate-200 text-sm">{sub.name}</span>
                           <span className={`text-[8px] font-mono px-2 py-0.5 rounded ${
-                            sub.status === "COMPLETED" ? "text-emerald-400 bg-emerald-950/20 border border-emerald-500/20" : "text-cyan-400 bg-cyan-950/20 border border-cyan-500/20"
+                            sub.status === "COMPLETED" ? "text-emerald-400/80 bg-emerald-950/20 border border-emerald-500/10" : "text-cyan-400/80 bg-cyan-950/20 border border-cyan-500/10"
                           }`} id={`subject-status-badge-${sub.id}`}>
                             {sub.status}
                           </span>
                         </div>
-                        <p className="text-xs font-mono text-purple-300/60 mt-0.5">{sub.issue}</p>
+                        <p className="text-xs font-mono text-slate-400/50 mt-0.5">{sub.issue}</p>
                       </div>
                     </div>
 
                     {/* Progress bar */}
                     <div className="flex-1 max-w-sm flex flex-col gap-1.5" id={`subject-progress-container-${sub.id}`}>
                       <div className="flex justify-between text-[10px] font-mono" id={`subject-progress-stats-${sub.id}`}>
-                        <span className="text-purple-400/60">SYNAPTIC FIX RATIO</span>
-                        <span className="text-cyan-300 font-bold">{sub.progress}%</span>
+                        <span className="text-slate-400/50">SYNAPTIC FIX RATIO</span>
+                        <span className="text-cyan-400/80 font-bold">{sub.progress}%</span>
                       </div>
-                      <div className="h-2 w-full bg-purple-950/50 rounded-full overflow-hidden border border-purple-500/10" id={`subject-progress-bar-track-${sub.id}`}>
+                      <div className="h-2 w-full bg-slate-950/50 rounded-full overflow-hidden border border-slate-500/10" id={`subject-progress-bar-track-${sub.id}`}>
                         <div 
                           className={`h-full rounded-full transition-all duration-1000 ease-out ${
                             sub.progress >= 100 
-                              ? "bg-emerald-500 shadow-[0_0_8px_rgba(34,197,94,0.4)]" 
-                              : "bg-cyan-500 shadow-[0_0_8px_rgba(6,182,212,0.4)]"
+                              ? "bg-emerald-600/80" 
+                              : "bg-cyan-600/80"
                           }`}
                           style={{ width: `${sub.progress}%` }}
                           id={`subject-progress-bar-fill-${sub.id}`}
@@ -723,8 +723,8 @@ export default function DashboardView({
                     {/* ETA countdown and boost action */}
                     <div className="flex items-center justify-between md:justify-end gap-6 min-w-[170px]" id={`subject-actions-box-${sub.id}`}>
                       <div className="text-left md:text-right" id={`subject-eta-box-${sub.id}`}>
-                        <span className="block text-[8px] font-mono text-purple-400/50">ETA COMP</span>
-                        <span className="font-mono text-xs text-purple-300 font-semibold">{sub.eta}</span>
+                        <span className="block text-[8px] font-mono text-slate-400/40">ETA COMP</span>
+                        <span className="font-mono text-xs text-slate-400 font-semibold">{sub.eta}</span>
                       </div>
 
                       <button
@@ -732,8 +732,8 @@ export default function DashboardView({
                         onClick={() => boostSubjectRepair(sub.id)}
                         className={`px-3 py-2 rounded-lg font-display text-[10px] tracking-widest flex items-center gap-1.5 border transition-all duration-300 ${
                           sub.progress >= 100
-                            ? "text-slate-500/40 border-slate-500/5 bg-transparent cursor-not-allowed"
-                            : "glass-button text-cyan-300 hover:text-cyan-200 border-cyan-500/30"
+                            ? "text-slate-500/30 border-slate-500/5 bg-transparent cursor-not-allowed"
+                            : "bg-slate-900 hover:bg-slate-800 text-cyan-300 border-slate-500/15"
                         }`}
                         id={`subject-boost-btn-${sub.id}`}
                       >

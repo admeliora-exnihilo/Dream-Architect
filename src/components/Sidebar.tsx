@@ -41,7 +41,7 @@ export default function Sidebar({
   };
 
   return (
-    <aside className="w-64 flex flex-col glass-panel-recessed border-r border-slate-500/15 h-full select-none shrink-0" id="sidebar-container">
+    <aside className="w-64 flex flex-col glass-panel-recessed border-r border-slate-500/15 h-full select-none shrink-0 relative z-20" id="sidebar-container">
       {/* Brand Logo Header */}
       <div className="p-6 border-b border-slate-500/10 flex items-center gap-3" id="sidebar-header">
         <div className="p-2 bg-cyan-500/10 rounded-lg border border-cyan-500/20 glow-pulse" id="sidebar-logo-box">
