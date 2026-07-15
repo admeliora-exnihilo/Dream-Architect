@@ -1,0 +1,6 @@
+{
+  "name": "Dream Architect",
+  "description": "An interactive futuristic glassmorphic neural cockpit to monitor dream stability, repair memory corruptions, and architect new dreams with server-side AI grounding.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

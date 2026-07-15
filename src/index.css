@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer utilities {
+  /* 1. Recessed Elevation Layer (Sidebar, lower menus) - Recessed 3D depth */
+  .glass-panel-recessed {
+    background: linear-gradient(135deg, rgba(6, 11, 25, 0.35) 0%, rgba(2, 4, 10, 0.4) 100%);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-radius: 18px;
+    border-top: 1px solid rgba(168, 85, 247, 0.18);
+    border-left: 1px solid rgba(168, 85, 247, 0.12);
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    /* Inset shadows: soft top-left light catch (white), bottom-right shadow recess (dark) */
+    box-shadow: 
+      inset 1px 1px 1px rgba(255, 255, 255, 0.05),
+      inset -1px -1px 1px rgba(0, 0, 0, 0.6),
+      0 4px 20px -4px rgba(0, 0, 0, 0.8),
+      0 0 15px rgba(168, 85, 247, 0.02);
+  }
+
+  /* 2. Medium Elevation Layer (Standard widgets, panels, list options) */
+  .glass-panel-elevated-medium, .glass-panel {
+    background: linear-gradient(135deg, rgba(12, 22, 48, 0.5) 0%, rgba(3, 7, 18, 0.55) 100%);
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+    border-radius: 20px;
+    border-top: 1px solid rgba(6, 182, 212, 0.32);
+    border-left: 1px solid rgba(6, 182, 212, 0.22);
+    border-right: 1px solid rgba(0, 0, 0, 0.65);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.65);
+    /* Upper-left light simulation: highlighted top-left, shadowed bottom-right, plus double soft table shadow and radial backing glow */
+    box-shadow: 
+      inset 1.8px 1.8px 0px rgba(255, 255, 255, 0.12),
+      inset -1.5px -1.5px 0px rgba(0, 0, 0, 0.75),
+      0 12px 35px -8px rgba(0, 0, 0, 0.9),
+      0 4px 12px rgba(0, 0, 0, 0.55),
+      0 0 25px 0 rgba(6, 182, 212, 0.06);
+  }
+
+  /* 3. High Elevation Layer (Highest prominence: main scanners, primary interaction centers) */
+  .glass-panel-elevated-high, .glass-panel-heavy {
+    background: linear-gradient(135deg, rgba(16, 28, 58, 0.65) 0%, rgba(5, 10, 24, 0.7) 100%);
+    backdrop-filter: blur(26px);
+    -webkit-backdrop-filter: blur(26px);
+    border-radius: 22px;
+    /* Simulated light catch on top (neon cyan highlight) and left (neon purple highlight), with deep dark bottom/right ridges */
+    border-top: 1px solid rgba(6, 182, 212, 0.45);
+    border-left: 1px solid rgba(168, 85, 247, 0.38);
+    border-right: 1px solid rgba(0, 0, 0, 0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
+    box-shadow: 
+      inset 2.5px 2.5px 0px rgba(255, 255, 255, 0.18),
+      inset -2.2px -2.2px 0px rgba(0, 0, 0, 0.85),
+      0 28px 65px -15px rgba(0, 0, 0, 0.98),
+      0 10px 25px -5px rgba(0, 0, 0, 0.65),
+      0 0 35px 2px rgba(6, 182, 212, 0.12),
+      0 0 45px 0 rgba(168, 85, 247, 0.08);
+  }
+
+  /* Hover Lift & Bloom interactions */
+  .glass-panel-hoverable {
+    transition: all 0.28s cubic-bezier(0.18, 0.89, 0.32, 1.15);
+  }
+
+  .glass-panel-hoverable:hover {
+    transform: translateY(-4px) scale(1.005);
+    border-color: rgba(6, 182, 212, 0.35);
+    box-shadow: 
+      inset 2.5px 2.5px 0px rgba(255, 255, 255, 0.16),
+      inset -1px -1px 0px rgba(0, 0, 0, 0.4),
+      0 32px 55px -12px rgba(0, 0, 0, 0.95),
+      0 12px 22px -6px rgba(0, 0, 0, 0.6),
+      0 0 35px 4px rgba(6, 182, 212, 0.12),
+      0 0 45px 2px rgba(168, 85, 247, 0.08);
+  }
+
+  /* Interactive Buttons with premium tactile feel & soft neon bloom */
+  .glass-button {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.06) 0%, rgba(6, 182, 212, 0.02) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.6);
+    border-right: 1px solid rgba(0, 0, 0, 0.6);
+    transition: all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+    box-shadow: 
+      inset 1px 1px 0px rgba(255, 255, 255, 0.06),
+      0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .glass-button:hover:not(:disabled) {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.18) 0%, rgba(6, 182, 212, 0.1) 100%);
+    border-color: rgba(34, 211, 238, 0.45);
+    box-shadow: 
+      inset 1px 1px 0px rgba(255, 255, 255, 0.15),
+      0 4px 15px rgba(6, 182, 212, 0.35);
+    transform: translateY(-1.5px);
+  }
+
+  .glass-button:active:not(:disabled) {
+    transform: translateY(0.5px);
+    box-shadow: 
+      inset 1px 1px 3px rgba(0, 0, 0, 0.7),
+      0 1px 2px rgba(6, 182, 212, 0.15);
+  }
+
+  /* Focused cyan glow for futuristic inputs and dropdowns */
+  .glass-input {
+    background: rgba(8, 12, 24, 0.45);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    border-radius: 10px;
+    box-shadow: 
+      inset 1px 1px 2px rgba(0, 0, 0, 0.5),
+      inset -1px -1px 0px rgba(255, 255, 255, 0.03);
+    transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .glass-input:focus {
+    border-color: rgba(6, 182, 212, 0.55);
+    box-shadow: 
+      0 0 18px rgba(6, 182, 212, 0.2),
+      inset 1px 1px 1px rgba(0, 0, 0, 0.6),
+      inset 0 0 6px rgba(6, 182, 212, 0.08);
+    outline: none;
+  }
+
+  /* Futuristic text and borders */
+  .text-neon-purple {
+    color: #cffafe;
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.8), 0 0 20px rgba(6, 182, 212, 0.4);
+  }
+
+  .text-neon-cyan {
+    color: #cffafe;
+    text-shadow: 0 0 10px rgba(6, 182, 212, 0.8), 0 0 20px rgba(6, 182, 212, 0.4);
+  }
+
+  .text-neon-rose {
+    color: #ffe4e6;
+    text-shadow: 0 0 10px rgba(244, 63, 94, 0.8), 0 0 20px rgba(244, 63, 94, 0.4);
+  }
+
+  .border-neon-purple {
+    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+  }
+
+  .border-neon-cyan {
+    border-color: rgba(6, 182, 212, 0.5);
+    box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+  }
+
+  /* Scanlines and screen animations */
+  .scanline {
+    background: linear-gradient(
+      rgba(18, 16, 16, 0) 50%, 
+      rgba(0, 0, 0, 0.25) 50%
+    ), linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+    background-size: 100% 4px, 6px 100%;
+  }
+
+  .glow-pulse {
+    animation: glowPulse 2s infinite ease-in-out;
+  }
+
+  .grid-bg {
+    background-image: 
+      linear-gradient(to right, rgba(6, 182, 212, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(6, 182, 212, 0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    opacity: 0.3;
+    filter: drop-shadow(0 0 2px rgba(6, 182, 212, 0.4));
+  }
+  50% {
+    opacity: 0.8;
+    filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.8));
+  }
+}
+
